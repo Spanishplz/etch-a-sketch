@@ -15,11 +15,20 @@ function mouseOver(event){
     // let opacity = target;
     // console.log(target.parentNode);
         if (target.parentNode.id === "screen"){
-            target.classList.add("coloring");
+            if (colorButton.textContent === "color"  &&
+                !target.style.backgroundColor) {
+            // target.classList.add("coloring");
+                target.style.backgroundColor = "black";
+            }
+            else if (colorButton.textContent === "b/w" &&
+                     !target.style.backgroundColor) {
+                target.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
+                // target.classList.add("coloring");
+            }
             let opacity = +target.style.opacity;
             if (opacity < 1) {
                 opacity += 0.2;
-                console.log(typeof target.style.opacity);
+                // console.log(typeof target.style.opacity);
                 target.style.opacity = `${opacity}`; 
             }
     }
@@ -55,7 +64,7 @@ function  createPixels(squares) {
 
 function createPixel(side) {
     const pixel = document.createElement("div");
-    pixel.setAttribute("style","border: 1px solid deepskyblue; flex: 0 0 auto;");
+    pixel.setAttribute("style"," flex: 0 0 auto;");
     pixel.style.transitionProperty = "background-color";
     pixel.style.transitionDuration = "0s";;
     pixel.style.opacity = "0";
@@ -63,9 +72,6 @@ function createPixel(side) {
     pixel.style.height = `${side}px`;
     pixel.style.width = `${side}px`;
     screen.appendChild(pixel);
-
-
-
 }
 
 
@@ -84,7 +90,9 @@ clearButton.addEventListener("click", (event) => {
 function resetBackgrounds() {
     let  allPixels = document.querySelectorAll("#screen div");
     allPixels.forEach((pixel) => {
-        pixel.classList.remove("coloring");
+        pixel.style.backgroundColor = "";
+        pixel.style.opacity = 0;
+        // pixel.classList.remove("coloring");
     });
 }
 
@@ -114,7 +122,28 @@ colorButton.addEventListener("click", (e) => {
     } else {
         colorButton.textContent = "b/w";
     };
+    resetBackgrounds();
 
 });
 
 
+// get random RGB number
+const buttonsDiv = document.querySelector("#buttons");
+buttonsDiv.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
+// buttonsDiv.style.backgroundColor = "red";
+console.log(buttonsDiv);
+
+
+function rgbRandom() {
+    min = 0;
+    max = 256;
+    return  Math.floor(Math.random() * (max - min) + min);
+}
+
+
+// for (let i = 0; i < 1000; i++) {
+//     let number = randomNumber(0, 256);
+//     console.log(number);
+//     if(number === 0  || number === 255) break;
+
+// }
