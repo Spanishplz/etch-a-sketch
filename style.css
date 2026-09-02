@@ -15,14 +15,16 @@ h1 {
 }
 
 #screenDiv {
-    box-sizing: content-box
+    box-sizing: content-box;
     border: 2px solid lightblue;
-    height: 500px;
+    height: 1000px;
     display: flex;
     justify-content: center;
 }
 #screen {
+    box-sizing: content-box;
     border: 5px solid violet;
     display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
