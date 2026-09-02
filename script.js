@@ -20,6 +20,29 @@ function mouseOver(event){
 }
 
 
+// values of the screen size
+let screenH = screen.clientHeight; // 500
+let screenW = screen.clientWidth; // 500
+
+// values of each square "pixel" size
+// let pixelH = pixel.clientHeight;
+// let pixelW = pixel.clientWidth;
+
+// input
+
+let squares = 10;
+let total = squares*squares;
+let pixelSize = screenW/squares;
+createPixels(squares);
+
+function  createPixels(squares) {
+    let total = squares*squares;
+    let pixelSize = screenW/squares;
+    for(let i =  0; i < total; i++) {
+        // console.log(i);
+        createPixel(pixelSize);
+    };
+}
 
 
 // create pixel divs
@@ -32,50 +55,49 @@ function createPixel(side) {
     pixel.classList.add("pixel");
     pixel.style.height = `${side}px`;
     pixel.style.width = `${side}px`;
-
-// add the extra styles for the transition
-
-
     screen.appendChild(pixel);
+
+
 
 }
 
 
-// values of the screen size
-let screenH = screen.clientHeight; // 500
-let screenW = screen.clientWidth; // 500
-
-// values of each square "pixel" size
-// let pixelH = pixel.clientHeight;
-// let pixelW = pixel.clientWidth;
-
-// input
-let squares = 10;
-let total = squares*squares;
-let pixelSize = screenW/squares;
-
-
-for(let i =  0; i < total; i++) {
-    // console.log(i);
-    createPixel(pixelSize);
-};
 
 
 // buttons
+
 // clear
-
 const clearButton = document.querySelector("#clear");
-const allPixels = document.querySelectorAll("#screen div");
 
-clear.addEventListener("click", (event) => {
-    resetBackgrounds(allPixels);
+
+clearButton.addEventListener("click", (event) => {
+    resetBackgrounds();
+});
+
+function resetBackgrounds() {
+    let  allPixels = document.querySelectorAll("#screen div");
+    allPixels.forEach((pixel) => {
+        pixel.classList.remove("coloring");
+    });
+}
+
+// input for the size of the canvas
+
+const sizeButton = document.querySelector("#size");
+
+sizeButton.addEventListener("click", (e) => {
+    let size = prompt("Number of squares per side? (no more than 100)", "50");
+    // let size = 50;
+    let sizeNumber = Number(size);
+    // amount of pixels
+    let pixelAmount = document.querySelectorAll("#screen div");
+    // remove elements
+    pixelAmount.forEach((pixel) => {
+        pixel.remove();
+    });
+    createPixels(size);
 });
 
 
-function resetBackgrounds(arr) {
-    allPixels.forEach((pixel) => {
-        // pixel.style.backgroundColor = "white";%
-        pixel.classList.remove("coloring");
-        console.log("hi");
-    });
-}
+
+
