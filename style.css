@@ -23,6 +23,12 @@ h1 {
     gap: 20px;
 }
 
+#buttons .button {
+    height: 35px;
+    width: 80px;
+    background-color: lightgrey;
+}
+
 
 #screenDiv {
     box-sizing: content-box;

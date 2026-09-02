@@ -12,10 +12,14 @@ screen.addEventListener("mouseover", mouseOver);
 
 function mouseOver(event){
     let target = event.target;
+    // let opacity = target;
     // console.log(target.parentNode);
         if (target.parentNode.id === "screen"){
-        // target.style.backgroundColor = "black";
             target.classList.add("coloring");
+            let opacity = +target.style.opacity;
+            opacity += 0.2;
+            console.log(typeof target.style.opacity);
+            target.style.opacity = `${opacity}`;
     }
 }
 
@@ -52,6 +56,7 @@ function createPixel(side) {
     pixel.setAttribute("style","border: 1px solid deepskyblue; flex: 0 0 auto;");
     pixel.style.transitionProperty = "background-color";
     pixel.style.transitionDuration = "0s";;
+    pixel.style.opacity = "0.1";
     pixel.classList.add("pixel");
     pixel.style.height = `${side}px`;
     pixel.style.width = `${side}px`;
@@ -81,8 +86,7 @@ function resetBackgrounds() {
     });
 }
 
-// input for the size of the canvas
-
+// button for the size of the canvas
 const sizeButton = document.querySelector("#size");
 
 sizeButton.addEventListener("click", (e) => {
@@ -98,6 +102,17 @@ sizeButton.addEventListener("click", (e) => {
     createPixels(size);
 });
 
+// color change
+const colorButton = document.querySelector("#color");
 
+colorButton.addEventListener("click", (e) => {
+    let text = colorButton.textContent;
+    if(text === "b/w") {
+        colorButton.textContent = "color";
+    } else {
+        colorButton.textContent = "b/w";
+    };
+
+});
 
 
