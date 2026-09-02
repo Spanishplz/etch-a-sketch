@@ -13,3 +13,13 @@ h1 {
     background-color: orange;
     text-align: center;
 }
+
+#screenDiv {
+    border: 2px solid lightblue;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+#screen {
+    border: 5px solid violet;
+}
