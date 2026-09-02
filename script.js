@@ -17,9 +17,11 @@ function mouseOver(event){
         if (target.parentNode.id === "screen"){
             target.classList.add("coloring");
             let opacity = +target.style.opacity;
-            opacity += 0.2;
-            console.log(typeof target.style.opacity);
-            target.style.opacity = `${opacity}`;
+            if (opacity < 1) {
+                opacity += 0.2;
+                console.log(typeof target.style.opacity);
+                target.style.opacity = `${opacity}`; 
+            }
     }
 }
 
@@ -56,7 +58,7 @@ function createPixel(side) {
     pixel.setAttribute("style","border: 1px solid deepskyblue; flex: 0 0 auto;");
     pixel.style.transitionProperty = "background-color";
     pixel.style.transitionDuration = "0s";;
-    pixel.style.opacity = "0.1";
+    pixel.style.opacity = "0";
     pixel.classList.add("pixel");
     pixel.style.height = `${side}px`;
     pixel.style.width = `${side}px`;
