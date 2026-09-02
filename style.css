@@ -15,6 +15,7 @@ h1 {
 }
 
 #screenDiv {
+    box-sizing: content-box
     border: 2px solid lightblue;
     height: 500px;
     display: flex;
@@ -22,4 +23,6 @@ h1 {
 }
 #screen {
     border: 5px solid violet;
+    display: flex;
+    align-items: flex-start;
 }
