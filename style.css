@@ -25,6 +25,20 @@ h1 {
     box-sizing: content-box;
     border: 5px solid violet;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
     flex-wrap: wrap;
+}
+
+.coloring {
+    background-color: black;
+    /* border: 1px solid red; */
+}
+
+/* #pixel { */
+/*     border: 1px solid black; */
+/*     width: 100px; */
+/*     height: 100px; */
+
 }

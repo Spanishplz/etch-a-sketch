@@ -1,4 +1,3 @@
-
 // screen size
 const screenDiv = document.querySelector("#screenDiv");
 const screen = document.querySelector("#screen");
@@ -7,18 +6,37 @@ const screen = document.querySelector("#screen");
 screen.style.width = `${screen.clientHeight}px`;
 console.log(screen.offsetHeight);
 console.log(screen.offsetWidth);
+
+screen.addEventListener("mouseover", mouseOver);
+
+
+function mouseOver(event){
+    let target = event.target;
+    console.log(target.parentNode);
+        if (target.parentNode.id === "screen"){
+        // target.style.backgroundColor = "black";
+            target.classList.add("coloring");
+    }
+}
+
+
+
+
 // create pixel divs
 
 function createPixel(side) {
     const pixel = document.createElement("div");
-    pixel.setAttribute("style","border: 1px solid deepskyblue; flex: 0 0 auto; ");
-    // pixel.style.boxSizing = "content-box";
-    // pixel.setAttribute("style","background-color: green; flex: 0 0 auto;");
-
+    pixel.setAttribute("style","border: 1px solid deepskyblue; flex: 0 0 auto;");
+    pixel.style.transitionProperty = "background-color";
+    pixel.style.transitionDuration = "1s";;
+    pixel.classList.add("pixel");
     pixel.style.height = `${side}px`;
     pixel.style.width = `${side}px`;
-        screen.appendChild(pixel);
-    // console.log(pixel.offsetHeight);
+
+// add the extra styles for the transition
+
+
+    screen.appendChild(pixel);
 
 }
 
@@ -32,7 +50,7 @@ let screenW = screen.clientWidth; // 500
 // let pixelW = pixel.clientWidth;
 
 // input
-let squares = 16;
+let squares = 10;
 let total = squares*squares;
 let pixelSize = screenW/squares;
 
@@ -41,5 +59,3 @@ for(let i =  0; i < total; i++) {
     // console.log(i);
     createPixel(pixelSize);
 };
-
-console.log(pixelSize * 16 );
