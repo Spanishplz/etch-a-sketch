@@ -12,7 +12,17 @@ body {
 h1 {
     background-color: orange;
     text-align: center;
+    font-size: 30px;
 }
+
+#buttons {
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
 
 #screenDiv {
     box-sizing: content-box;
