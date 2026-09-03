@@ -45,7 +45,7 @@ let screenW = screen.clientWidth; // 500
 
 // input
 
-let squares = 10;
+let squares = 50;
 let total = squares*squares;
 let pixelSize = screenW/squares;
 createPixels(squares);
@@ -98,18 +98,23 @@ function resetBackgrounds() {
 
 // button for the size of the canvas
 const sizeButton = document.querySelector("#size");
-
+console.log(+"dog");
 sizeButton.addEventListener("click", (e) => {
-    let size = prompt("Number of squares per side? (no more than 100)", "50");
-    // let size = 50;
-    let sizeNumber = Number(size);
+    let size = 0;
+    let sizeNumber = 0;
+    do {
+        size = prompt("Please, write a number between 1-100", "50");
+        sizeNumber = +size;
+        debugger;
+    } while(isNaN(sizeNumber) || sizeNumber < 1 || sizeNumber > 100)
+
     // amount of pixels
     let pixelAmount = document.querySelectorAll("#screen div");
     // remove elements
     pixelAmount.forEach((pixel) => {
         pixel.remove();
     });
-    createPixels(size);
+    createPixels(sizeNumber);
 });
 
 // color change
