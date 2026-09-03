@@ -69,7 +69,8 @@ h1 {
 }
 #screen {
     box-sizing: content-box;
-    border: 5px solid violet;
+    border-style: double;
+    border-width: 8px;
     display: flex;
     align-items: center;
     align-content: center;

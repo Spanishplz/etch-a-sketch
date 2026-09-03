@@ -126,5 +126,6 @@ const buttonsDiv = document.querySelector("#buttons");
 const screenDivContainer = document.querySelector("#screenDivContainer");
 const body = document.querySelector("body");
 body.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
+screen.style.borderColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
 
 
