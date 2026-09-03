@@ -16,26 +16,31 @@ h1 {
 }
 
 #buttons {
-    height: 50px;
+    height: 80px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
 #buttons .button {
     height: 35px;
-    width: 80px;
+    width: 100px;
     background-color: lightgrey;
 }
 
+#screenDivContainer {
+    display: flex;
+    justify-content: center;
+}
 
 #screenDiv {
     box-sizing: content-box;
-    border: 2px solid lightblue;
+    /* border: 2px solid lightblue; */
     height: 1000px;
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 #screen {
     box-sizing: content-box;
@@ -57,4 +62,3 @@ h1 {
 /*     width: 100px; */
 /*     height: 100px; */
 
-}

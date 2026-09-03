@@ -4,31 +4,24 @@ const screen = document.querySelector("#screen");
 
 // makes it a square
 screen.style.width = `${screen.clientHeight}px`;
-// console.log(screen.offsetHeight);
-// console.log(screen.offsetWidth);
-
 screen.addEventListener("mouseover", mouseOver);
 
 
 function mouseOver(event){
     let target = event.target;
-    // let opacity = target;
-    // console.log(target.parentNode);
+    
         if (target.parentNode.id === "screen"){
             if (colorButton.textContent === "color"  &&
                 !target.style.backgroundColor) {
-            // target.classList.add("coloring");
                 target.style.backgroundColor = "black";
             }
             else if (colorButton.textContent === "b/w" &&
                      !target.style.backgroundColor) {
                 target.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
-                // target.classList.add("coloring");
             }
             let opacity = +target.style.opacity;
             if (opacity < 1) {
                 opacity += 0.2;
-                // console.log(typeof target.style.opacity);
                 target.style.opacity = `${opacity}`; 
             }
     }
@@ -39,11 +32,8 @@ function mouseOver(event){
 let screenH = screen.clientHeight; // 500
 let screenW = screen.clientWidth; // 500
 
-// values of each square "pixel" size
-// let pixelH = pixel.clientHeight;
-// let pixelW = pixel.clientWidth;
 
-// input
+// loading page values
 
 let squares = 50;
 let total = squares*squares;
@@ -65,8 +55,8 @@ function  createPixels(squares) {
 function createPixel(side) {
     const pixel = document.createElement("div");
     pixel.setAttribute("style"," flex: 0 0 auto;");
-    pixel.style.transitionProperty = "background-color";
-    pixel.style.transitionDuration = "0s";;
+    // pixel.style.transitionProperty = "background-color";
+    // pixel.style.transitionDuration = "0s";
     pixel.style.opacity = "0";
     pixel.classList.add("pixel");
     pixel.style.height = `${side}px`;
@@ -74,12 +64,7 @@ function createPixel(side) {
     screen.appendChild(pixel);
 }
 
-
-
-
-// buttons
-
-// clear
+// clear button
 const clearButton = document.querySelector("#clear");
 
 
@@ -98,14 +83,12 @@ function resetBackgrounds() {
 
 // button for the size of the canvas
 const sizeButton = document.querySelector("#size");
-console.log(+"dog");
 sizeButton.addEventListener("click", (e) => {
     let size = 0;
     let sizeNumber = 0;
     do {
         size = prompt("Please, write a number between 1-100", "50");
         sizeNumber = +size;
-        debugger;
     } while(isNaN(sizeNumber) || sizeNumber < 1 || sizeNumber > 100)
 
     // amount of pixels
@@ -114,10 +97,11 @@ sizeButton.addEventListener("click", (e) => {
     pixelAmount.forEach((pixel) => {
         pixel.remove();
     });
+    sizeButton.textContent = `size ${sizeNumber}x${sizeNumber}`;
     createPixels(sizeNumber);
 });
 
-// color change
+// color change button
 const colorButton = document.querySelector("#color");
 
 colorButton.addEventListener("click", (e) => {
@@ -131,24 +115,16 @@ colorButton.addEventListener("click", (e) => {
 
 });
 
-
 // get random RGB number
-const buttonsDiv = document.querySelector("#buttons");
-buttonsDiv.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
-// buttonsDiv.style.backgroundColor = "red";
-console.log(buttonsDiv);
-
-
 function rgbRandom() {
     min = 0;
     max = 256;
     return  Math.floor(Math.random() * (max - min) + min);
 }
 
+const buttonsDiv = document.querySelector("#buttons");
+const screenDivContainer = document.querySelector("#screenDivContainer");
+buttonsDiv.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
+screenDivContainer.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
 
-// for (let i = 0; i < 1000; i++) {
-//     let number = randomNumber(0, 256);
-//     console.log(number);
-//     if(number === 0  || number === 255) break;
 
-// }
