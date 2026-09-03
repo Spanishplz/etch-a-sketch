@@ -2,17 +2,42 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Holidays Homework';
+    src: url('fonts/HolidaysHomework.woff2') format('woff2'),
+         url('fonts/HolidaysHomework.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: orange;
+}
+
+#header,
+#footer {
+    padding-top: 40px;
 }
 
 h1 {
-    background-color: orange;
+    font-family: 'Holidays Homework';
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+#footer span{
+    font-size: 40px;
 }
 
 #buttons {

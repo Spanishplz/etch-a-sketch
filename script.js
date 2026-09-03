@@ -124,7 +124,7 @@ function rgbRandom() {
 
 const buttonsDiv = document.querySelector("#buttons");
 const screenDivContainer = document.querySelector("#screenDivContainer");
-buttonsDiv.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
-screenDivContainer.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
+const body = document.querySelector("body");
+body.style.backgroundColor = `rgb(${rgbRandom()}, ${rgbRandom()}, ${rgbRandom()})`;
 
 
